@@ -172,7 +172,8 @@ const convertToBar = (
     task.progress,
     rtl
   );
-  const y = taskYCoordinate(index, rowHeight, taskHeight);
+  const barHeight = task.styles?.barHeight ?? taskHeight;
+  const y = taskYCoordinate(index, rowHeight, barHeight);
   const hideChildren =
     task.type === "project" || task.type === "parentTask"
       ? task.hideChildren

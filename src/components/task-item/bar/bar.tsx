@@ -14,19 +14,20 @@ export const Bar: React.FC<TaskItemProps> = ({
   onEventStart,
   isSelected,
 }) => {
+  const barHeight = task.styles.barHeight ?? task.height;
   const progressPoint = getProgressPoint(
     +!rtl * task.progressWidth + task.progressX,
     task.y,
-    task.height
+    barHeight
   );
-  const handleHeight = task.height - 2;
+  const handleHeight = barHeight - 2;
   return (
     <g className={styles.barWrapper} tabIndex={0}>
       <BarDisplay
         x={task.x1}
         y={task.y}
         width={task.x2 - task.x1}
-        height={task.height}
+        height={barHeight}
         progressX={task.progressX}
         progressWidth={task.progressWidth}
         barCornerRadius={task.barCornerRadius}
